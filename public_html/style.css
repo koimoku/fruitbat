@@ -39,7 +39,7 @@
     flex-basis: 0;
 }
 
-@media screen and (min-width: 541px) .primaryColumn {
+.primaryColumn {
     width: 55%;
     min-width: 500px;
     overflow-y: auto;
