@@ -39,9 +39,14 @@
     flex-basis: 0;
 }
 
-.primaryColumn {
+@media screen and (min-width: 541px) .primaryColumn {
     width: 55%;
     min-width: 500px;
+    overflow-y: auto;
+}
+@media screen and (max-width:540px) .primaryColumn {
+    width: 90%;
+    min-width: 500px
     overflow-y: auto;
 }
 
