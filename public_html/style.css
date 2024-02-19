@@ -1,0 +1,337 @@
+:root {
+    --bannerHeight: 60px;
+    --contentWidth: 700px;
+    --borderRadius: 20px;
+    --margin: 15px;
+    --padding: 0 15px;
+    --buttonPadding: 8px 12px;
+
+    --textColor: #eee;
+    --timestampColor: #999;
+    --gray0: #171717;
+    --gray1: #222;
+    --gray2: #333;
+    --gray3: #393939;
+    --gray4: #444;
+    --gray5: #4f4f4f;
+    --gray6: #555;
+    --gray7: #666;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#screen {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--gray1);
+    overflow: hidden;
+}
+
+#topContainer {
+    width: 100%;
+    height: var(--bannerHeight);
+    background-color: var(--gray3);
+    display: flex;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: calc(100vh - var(--bannerHeight));
+}
+
+.rightColumn {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.leftColumn {
+    width: 247px;
+    display: flex;
+    flex-direction: column;
+}
+
+#userButtonsContainer {
+    justify-content: right;
+}
+
+#userButtonsContainer, #topLeftContainer {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+}
+
+#topLeftContainer {
+    justify-content: left;
+}
+
+.centerColumn, #primaryColumn {
+    width: var(--contentWidth);
+    min-width: var(--contentWidth);
+}
+
+#primaryColumn {
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.primaryColumn::-webkit-scrollbar {
+    display: none;
+}
+
+#searchBar {
+    height: calc(100% - (2 * var(--margin)));
+    width: calc(100% - (2 * var(--margin)));
+    background-color: var(--gray5);
+    margin: var(--margin);
+    border-radius: var(--borderRadius);
+    display: flex;
+}
+
+#searchIcon {
+    margin: 6px 8px 6px 8px;
+}
+
+.icon img {
+    filter: invert(100%) sepia(5%) saturate(80%) hue-rotate(323deg) brightness(116%) contrast(87%);
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+.collapseMenuIcon {
+    margin-right: 0;
+}
+
+#searchInput {
+    width: calc(100% - var(--margin));
+}
+
+#searchInput input, #searchInput input:focus {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0);
+    border-width: 0;
+    outline: none;
+    color: var(--textColor);
+    font-family: Helvetica, "sans-serif";
+    font-size: 16px;
+}
+
+#collapseLeftMenuButton, #settingsButton, #loginButton, #collapseRightMenuButton {
+    height: calc(100% - (1.4 * var(--margin)));
+    margin: calc(0.7 * var(--margin)) calc(0.7 * var(--margin)) calc(0.7 * var(--margin)) 0;
+}
+
+#collapseLeftMenuButton {
+    width: fit-content;
+    margin: calc(0.7 * var(--margin)) calc(0.7 * var(--margin)) calc(0.7 * var(--margin)) calc(0.7 * var(--margin));
+}
+
+.button p {
+    font-size: 20px;
+    color: var(--textColor);
+    font-family: Helvetica, "sans-serif";
+}
+
+.button {
+    background-color: var(--gray5);
+    padding: var(--buttonPadding);
+    border-radius: calc(0.5 * var(--borderRadius));
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: var(--gray7);
+}
+
+.sideBar {
+    margin: var(--margin);
+    width: calc(100% - (2 * var(--margin)));
+    background-color: var(--gray3);
+    border-radius: var(--borderRadius);
+    padding: 3px;
+}
+
+#leftSideBar {
+    height: 295px;
+}
+
+#newPostButtonContainer {
+    margin: var(--margin);
+    width: calc(100% - (2 * var(--margin)));
+}
+
+#newPostButton {
+    margin: 0;
+    display: flex;
+    border-radius: var(--borderRadius);
+    justify-content: center;
+}
+
+.button h1 {
+    font-size: 30px;
+    font-family: "Visby Round CF", sans-serif;
+    color: var(--textColor);
+}
+
+.button h3 {
+    font-size: 24px;
+    color: var(--textColor);
+    font-family: Helvetica, "sans-serif";
+    font-weight: normal;
+}
+
+.sideBarButton {
+    margin: calc(0.75 * var(--margin));
+    border-radius: calc(0.75 * var(--borderRadius));
+}
+
+.sideBarIcon {
+    margin-right: 15px;
+}
+
+#newPostIcon {
+    width: 26px;
+    height: 26px;
+}
+
+#rightSideBar {
+    height: 300px;
+}
+
+#leftMenu, #rightMenu {
+    display: block;
+}
+
+#leftMenu.active, #rightMenu.active {
+    display: none;
+}
+
+/* Designing the CSS for each post */
+.postContainer {
+    width: calc(100% - (2 * var(--margin)));
+    min-height: 200px;
+    background-color: var(--gray2);
+    border-radius: var(--borderRadius);
+    margin: var(--margin);
+    padding: 5px;
+}
+
+.postTopRow {
+    height: 55px;
+    width: 100%;
+    /*border: 2px red solid;*/
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 0 0 15px;
+}
+
+.postBottomRow {
+    height: 62px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /*border: 2px yellow solid;*/
+    padding: 10px 15px 12px 15px;
+}
+
+.postMiddleRow {
+    padding: 6px 15px;
+    height: fit-content;
+    width: 100%;
+    /*border: 2px blue solid;*/
+}
+
+.postMiddleRow p {
+    color: var(--textColor);
+    font-size: 16px;
+    font-family: "Roboto", "sans-serif";
+}
+
+.usernameContainer {
+    padding: 0 10px 0 10px;
+    align-items: center;
+    /*border: 2px blue solid;*/
+}
+
+.userBadge {
+    width: 14px;
+    height: 14px;
+}
+
+.timestampContainer {
+    /*border: 2px yellow solid;*/
+}
+
+.timestampContainer p {
+    color: var(--timestampColor);
+    font-size: 14px;
+    font-family: "Roboto", "sans-serif";
+    right: 0;
+}
+
+.usernameContainer p {
+    color: var(--textColor);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Visby Round CF", "sans-serif";
+}
+
+
+.profilePicture img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    object-fit: scale-down;
+}
+
+.postTopTextContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.postRightButtonsContainer {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.postLeftButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.likeButton p, .commentButton p, .shareButton p, .bookmarkButton p {
+    font-size: 16px;
+}
+
+.commentButton, .likeButton, .bookmarkButton, .shareButton {
+    width: fit-content;
+    margin-right: 10px;
+}
+
+.bookmarkButton, .bookmarkIcon {
+    margin-right: 0;
+}
+
+#collapsedLeftSideBar, #collapsedNewPostButtonContainer {
+    display: block;
+}
